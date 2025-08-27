@@ -33,18 +33,18 @@ body {
 }
 
 .offscreen {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /*Header e nav */
 
 header {
-  background-color: rgba(0, 0, 139, 0.786);
+  background-color: rgba(0, 0, 139, 0.867);
   color: var(--dd);
   padding: 1rem 2rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -58,8 +58,8 @@ header {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  max-height: 80px;
   margin: 0 auto;
+  position: relative;
 }
 
 .logo img {
@@ -77,17 +77,21 @@ header {
 .nav-links {
   list-style: none;
   display: flex;
+  justify-content: center;
   align-items: center;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-links li {
-  margin-left: 2rem;
+  margin: 0 10px; /* Unificado para evitar conflitos */
 }
 
 .nav-links a {
   color: var(--dd);
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -98,6 +102,7 @@ header {
 }
 
 .cta-button-special a {
+  font-size: 1.2rem;
   background-color: var(--bb);
   color: var(--dd);
   padding: 0.8rem 1.5rem;
@@ -109,7 +114,23 @@ header {
 
 .cta-button-special a:hover {
   background-color: var(--dd);
+  color: var(--bb);
   transform: translateY(-2px);
+}
+
+/* Menu Toggle */
+.menu-toggle {
+  display: none; /* Oculto por padrão em telas grandes */
+  background: none;
+  border: none;
+  color: var(--dd);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menu-toggle:focus {
+  outline: 2px solid var(--bb);
 }
 
 /* Seção Hero/CTA */
@@ -175,7 +196,7 @@ header {
 
 .hero-image {
   position: absolute;
-  top:0;
+  top: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
@@ -192,160 +213,523 @@ header {
 
 /*Quem somos*/
 .who-we-are {
-    background-color: var(--ff); /* Cinza Claro */
-    padding: 4rem 2rem;
-    text-align: center;
-    color: var(--ee);
+  background-color: var(--ff);
+  /* Cinza Claro */
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--ee);
 }
 
 .about-title {
   font-family: 'Montserrat';
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--aa); /* Azul Escuro */
-    text-transform: uppercase;
-    position: relative;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--aa);
+  /* Azul Escuro */
+  text-transform: uppercase;
+  position: relative;
 }
 
 .about-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background-color: var(--bb); /* Dourado */
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: var(--bb);
+  /* Dourado */
 }
 
 .about-description {
-    max-width: 900px;
-    margin: 0 auto;
-    line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .about-description p {
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .about-images {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
 }
 
 .about-images figure {
-    margin: 0;
+  margin: 0;
 }
 
 .about-images img {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .about-images img:hover {
-    transform: scale(1.01);
+  transform: scale(1.01);
 }
 
 /*Serviços */
 .our-services {
-    background-color: var(--ff); /* Branco */
-    padding: 4rem 2rem;
-    padding-top: 3rem;
-    color: var(--aa); /* Azul Escuro */
-    position: relative;
+  background-color: var(--ff);
+  /* Branco */
+  padding: 4rem 2rem;
+  padding-top: 3rem;
+  color: var(--aa);
+  /* Azul Escuro */
+  position: relative;
 }
 
 .services-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .services-title {
   font-family: 'Montserrat';
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: #1E3A8A;
-    text-transform: uppercase;
-    position: relative;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  color: #1E3A8A;
+  text-transform: uppercase;
+  position: relative;
 }
 
 .services-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background-color: #D4A017; /* Dourado */
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: #D4A017;
+  /* Dourado */
 }
 
 .service-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .service-card {
-    background-color: #F5F5F5; /* Cinza Claro */
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+  background-color: #F5F5F5;
+  /* Cinza Claro */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .service-card figure {
-    margin: 0 0 1rem 0;
+  margin: 0 0 1rem 0;
 }
 
 .service-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+  width: 346px;
+  height: 242px;
+  border-radius: 5px;
 }
 
 .service-card h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #1E3A8A;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1E3A8A;
 }
 
 .service-card a {
-    color: #2E7D32; /* Verde Esmeralda */
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  color: #2E7D32;
+  /* Verde Esmeralda */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .service-card a:hover {
-    color: #1B5E20; /* Verde mais escuro */
+  color: #1B5E20;
+  /* Verde mais escuro */
 }
 
 .services-aside {
   font-family: 'Montserrat';
-    background-color: rgb(160, 121, 22); /* Dourado */
-    color: #FFFFFF;
-    padding: 1rem;
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 350;
-    width: 100%;
-    margin: 0 auto;
+  background-color: rgb(160, 121, 22);
+  /* Dourado */
+  color: #FFFFFF;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 350;
+  width: 100%;
+  margin: 0 auto;
 }
 
 /*Seção de contato*/
+.contact-info {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  /* Fundo claro para a seção toda, contrastando com a caixa azul */
+  text-align: center;
+}
+
+.blue-box {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #007bff;
+  /* Azul principal, ajuste para a cor da marca se necessário */
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  /* Sombra suave para destaque */
+  color: #fff;
+  /* Texto branco para contraste no fundo azul */
+}
+
+.blue-box h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.blue-box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  width: 100%;
+  text-align: left;
+  /* Alinha o texto à esquerda para melhor legibilidade */
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.contact-list i {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #fff;
+  /* Ícones brancos */
+}
+
+.contact-list span {
+  flex: 1;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #fff;
+  /* Fundo branco para destaque no azul */
+  color: #007bff;
+  /* Texto azul */
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+  /* Azul mais escuro no hover */
+  color: #fff;
+}
 
 /*Seção Footer */
+footer {
+  background-color: #2c3e50;
+  /* Cinza-azulado escuro para um fundo mais profissional */
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  /* Consistência de fonte */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  /* Alinha colunas à esquerda e à direita */
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column-convicta-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-subtitle {
+  font-size: 1rem;
+  color: #ecf0f1;
+  /* Cinza claro para contraste suave */
+  margin-bottom: 5px;
+}
+
+.contact-info {
+  background-color: #fff;
+  /* Caixa branca como na imagem */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Sombra leve */
+  color: #2c3e50;
+  /* Texto escuro na caixa branca */
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  line-height: 1.5;
+  /* Melhor legibilidade */
+}
+
+.contact-info i {
+  font-size: 1.3rem;
+  margin-right: 10px;
+  color: #2c3e50;
+}
+
+.contact-info a {
+  color: #2980b9;
+  /* Azul médio para links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #1a5276;
+  /* Azul mais escuro no hover */
+  text-decoration: underline;
+}
+
+.footer-column-redes-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  color: #ecf0f1;
+  /* Cinza claro para ícones */
+  font-size: 2rem;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #fff;
+  /* Branco no hover */
+}
+
+.copyright-text {
+  font-size: 1rem;
+  color: #ecf0f1;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ecf0f1;
+  /* Linha clara no topo */
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  margin: 0;
+  color: #ecf0f1;
+}
+
+.footer-bottom a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/*Responsividade */
+@media (max-width: 576px) { /* Dispositivos móveis (ex.: smartphones) */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 139, 0.9);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  .cta-button-special a {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .logo img {
+    max-width: 60px;
+  }
+
+  .navbar {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) { /* Tablets */
+  .navbar {
+    padding: 0.75rem 1rem; /* Reduzido para melhor ajuste */
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
+    justify-content: center; /* Centraliza em telas menores */
+  }
+
+  .logo img {
+    max-width: 60px; /* Reduzido para não dominar o espaço */
+    height: auto;
+    margin-bottom: 0.5rem; /* Espaço abaixo da logo */
+  }
+
+  .nav-links {
+    display: flex; /* Garante que o flex seja mantido */
+    flex-wrap: wrap; /* Permite que os itens quebrem */
+    gap: 15px; /* Espaçamento reduzido e ajustado */
+    justify-content: center; /* Centraliza os links */
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-links li {
+    margin: 0 5px; /* Espaçamento lateral mínimo */
+    flex: 0 0 auto; /* Evita que os itens estiquem desproporcionalmente */
+  }
+
+  .nav-links a {
+    font-size: 0.95rem; /* Reduzido para melhor legibilidade */
+    padding: 0 8px; /* Ajuste fino para toque */
+    white-space: nowrap; /* Evita que o texto quebre */
+  }
+
+  .cta-button-special a {
+    font-size: 0.95rem; /* Alinhado aos links */
+    padding: 0.4rem 0.9rem; /* Proporção menor */
+    margin: 0 5px; /* Espaçamento simétrico */
+    display: inline-block; /* Garante comportamento de bloco inline */
+  }
+
+  .menu-toggle {
+    display: none; /* Mantém desativado, mas verifica contexto */
+  }
+}
+@media (min-width: 769px) and (max-width: 992px) { /* Telas pequenas */
+  .nav-links {
+    gap: 25px; /* Reduzido de 30px para evitar excesso de espaço */
+    justify-content: center; /* Garante centralização */
+    padding: 0 15px; /* Adiciona padding lateral para melhor distribuição */
+  }
+
+  .nav-links a {
+    font-size: 1.1rem; /* Reduzido de 1.2rem para evitar corte ou sobreposição */
+    padding: 0 6px; /* Pequeno padding interno para legibilidade */
+    white-space: nowrap; /* Evita quebra de linha no texto */
+  }
+
+  .cta-button-special a {
+    font-size: 1.1rem; /* Alinhado ao tamanho dos links para consistência */
+    padding: 0.6rem 1.2rem; /* Ajustado para proporção menor e evitar excesso */
+    margin-left: 10px; /* Espaçamento à esquerda para separar do último link */
+  }
+
+  .logo img {
+    max-width: 75px; /* Reduzido de 80px para melhor proporção */
+    height: auto;
+  }
+
+  .menu-toggle {
+    display: none; /* Mantém desativado */
+  }
+
+  .navbar {
+    padding: 0.75rem 1rem; /* Ajuste fino no padding para otimizar espaço */
+  }
+}
+
+@media (min-width: 993px) { /* Desktops */
+  .nav-links {
+    gap: 40px;
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+  }
+
+  .cta-button-special a {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .logo img {
+    max-width: 85px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
