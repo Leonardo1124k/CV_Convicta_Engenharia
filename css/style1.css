@@ -650,6 +650,14 @@ footer {
 @media (max-width: 576px) {
 
   /* Dispositivos móveis (ex.: smartphones) */
+  header {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar {
+    padding: 0.5rem;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -685,11 +693,12 @@ footer {
   }
 
   .logo img {
-    max-width: 60px;
+    max-width: 50px;
   }
 
-  .navbar {
-    padding: 1rem;
+  .menu-toggle {
+    font-size: 1.2rem;
+    padding: 0.3rem;
   }
 }
 
